@@ -27,6 +27,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/edu/teacher")
+@CrossOrigin
 public class EduTeacherController {
 
     @Autowired
@@ -64,10 +65,9 @@ public class EduTeacherController {
     /**
      * 根据id修改讲师
      * */
-    @PutMapping("{id}")
-    public R update(@RequestBody EduTeacher eduTeacher,
-                    @PathVariable("id") String id){
-        eduTeacher.setId(id);
+    @PutMapping("")
+    public R update(@RequestBody EduTeacher eduTeacher){
+
         return R.ok(eduTeacherService.updateById(eduTeacher));
     }
     /**
@@ -75,11 +75,6 @@ public class EduTeacherController {
      * */
     @GetMapping("{id}")
     public R getById(@PathVariable("id") String id){
-        try{
-            int i = 1 / 0;
-        }catch (Exception e){
-            throw new GuliException(2000,"自定义异常处理");
-        }
         return R.ok(eduTeacherService.getById(new EduTeacher().setId(id)));
     }
     /**

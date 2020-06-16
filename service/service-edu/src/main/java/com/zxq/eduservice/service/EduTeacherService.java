@@ -1,5 +1,6 @@
 package com.zxq.eduservice.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zxq.eduservice.entity.EduTeacher;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zxq.eduservice.entity.vo.TeacherQuery;
@@ -19,7 +20,7 @@ public interface EduTeacherService extends IService<EduTeacher> {
 
     List<EduTeacher> selectPage(long current,long size);
 
-    List<EduTeacher> choosePage(long current, long size, TeacherQuery teacherQuery);
+    Page<EduTeacher> choosePage(long current, long size, TeacherQuery teacherQuery);
 
 
 }

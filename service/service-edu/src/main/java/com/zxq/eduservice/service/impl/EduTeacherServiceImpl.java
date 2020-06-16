@@ -35,7 +35,7 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
     }
 
     @Override
-    public List<EduTeacher> choosePage(long current, long size, TeacherQuery teacherQuery) {
+    public Page<EduTeacher> choosePage(long current, long size, TeacherQuery teacherQuery) {
         //创建page对象
         Page<EduTeacher> pageTeacher = new Page<>(current,size);
 
@@ -61,7 +61,8 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
         if(!StringUtils.isEmpty(end)) {
             wrapper.le("gmt_create",end);
         }
+        wrapper.orderByDesc("gmt_create");
         eduTeacherMapper.selectPage(pageTeacher,wrapper);
-        return pageTeacher.getRecords();
+        return pageTeacher;
     }
 }

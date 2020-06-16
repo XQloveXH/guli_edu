@@ -18,6 +18,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public R error(Exception e){
+        e.printStackTrace();
         return R.error(500,"服务器发生错误");
     }
 
