@@ -11,7 +11,7 @@ import java.util.HashMap;
  * @Version 1.0
  */
 @RestController
-@RequestMapping("edu/user")
+@RequestMapping("eduservice/user")
 @CrossOrigin
 public class EduLoginController {
 
@@ -30,4 +30,9 @@ public class EduLoginController {
         map.put("avatar","https://tse4-mm.cn.bing.net/th/id/OIP.Z8cO0OriANaUVakbQ6n0BwAAAA?w=151&h=165&c=7&o=5&dpr=1.25&pid=1.7");
         return R.ok(map);
     }
+    @GetMapping("test")
+    public R test(){
+        return R.ok("");
+    }
+
 }
